@@ -46,6 +46,8 @@ Schedule written to "complete.schedule"
 All tests are defined in the `/tests` subdirectory, and can be run using the
 `make test` rule. Takes my 2015 Macbook about 10 seconds to run.
 
+The unit test framework is provided by [Catch2](https://github.com/catchorg/Catch2) which easy-to-use, an industry standard `c++` testing suite. The test framework (e.g. the `REQUIRE(...)` functions) are *not* my own work, though the tests themselves are. I've included the header file directly in my project to avoid needing to install anything.
+
 ---
 
 ## Input Formats
