@@ -38,3 +38,15 @@ TEST_CASE("Make sure insertions work", "[AVL]") {
 		REQUIRE(avl.str() == "[5 [4 _ _] [6 _ _]]");
 	}
 }
+
+TEST_CASE("Make sure searching works", "[AVL]") {
+	auto avl = AVL<int>();
+
+	// Test some extreme cases
+	REQUIRE(avl.search(0) == false);
+	REQUIRE(avl.search(INT_MAX) == false);
+	REQUIRE(avl.search(INT_MIN) == false);
+
+	avl.insert(5);
+	REQUIRE(avl.search(5) == true);
+}

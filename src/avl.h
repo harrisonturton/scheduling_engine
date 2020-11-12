@@ -78,11 +78,11 @@ public:
 		node* parent = nullptr;
 		node* current = root;
 		while (current != nullptr) {
-			if (current->key == key) {
+			if (current->data == key) {
 				return true;
 			}
 			parent = current;
-			current = current->key < key
+			current = current->data < key
 				? current->left
 				: current->right;
 		}
