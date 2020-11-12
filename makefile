@@ -1,7 +1,13 @@
 
 name=main
 
-files=avl/avl.cpp *.cpp
+src=src/*.cpp
 
-build: $(files)
-	g++ -Wall -std=c++17 $(files) -o $(name)
+tests=tests/*cpp
+
+build: $(src)
+	g++ -Wall -std=c++17 $(src) -o $(name)
+
+test: $(tests)
+	g++ -Wall -std=c++17 $(tests) -o run_tests
+	./run_tests

@@ -28,3 +28,8 @@ on my system, but sometimes it differs), simply run:
 * Implement AVL tree
 * Dynamic programming solution
 * Local heuristic search
+
+## Testing
+
+All tests are defined in the `/tests` subdirectory, and can be run using the
+`make test` rule. Takes my 2015 Macbook about 7 seconds to run.
