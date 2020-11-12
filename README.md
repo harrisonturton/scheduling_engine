@@ -1,40 +1,54 @@
 # Scheduling Program
 
+## Requirements
+
+This project does not require any external packages aside from a `c++` compiler. On my machine, I have used `g++`:
+
+```
+> g++ --version
+Apple clang version 12.0.0 (clang-1200.0.32.2)
+Target: x86_64-apple-darwin19.6.0
+Thread model: posix
+```
+
 ## Compilation
 
-You should be able to compile this by running `make`, which should output an
-binary executable `./main` to run.
+Simply run `make`. If that doesn't work, the project is compiled using this command in the root directory:
 
 ```
-> make
-> ./main
+g++ -Wall -std=c++17 src/*.cpp -o main
 ```
 
-If the executable doesn't have the correct permissions straight away (it does
-on my system, but sometimes it differs), simply run:
+So simply replace `g++` with whatever works on your system. `c++17` is required, I think.
 
-``
-> chmod +x main
-``
+This will generate a binary in the root directory called `main`. If this doesn't have executable permissions, this can be fixed with `chmod +x main`.
 
-## Roadmap
+## Usage
 
-* Best-effort roster generation (given constraints)
-* Roster completion
-* Recommended hire?
+There are three different functionalities: generate a whole roster, finishing a partially-completed roster, and recommending a hire. Each requires different flags.
 
-## Todo
+The commandline application takes the format `./main [command] [args]` where the command is a flag which specifies what functionality will be used. Run the `./main --help` command to see a list the formats, but some short examples:
 
-* Implement AVL tree
-* Dynamic programming solution
-* Local heuristic search
+**Generate a whole roster**
+```
+> ./main --gen input/simple.requirements input/simple.availability -sw 10 -sa 5 -o simple.schedule
+Schedule written to "simple.schedule"
+```
+
+**Finish a partially-completed roster**
+```
+> ./main --gen input/simple.requirements input/simple.availability input/partial.schedule -sw 10 -sa 5 -o complete.schedule
+Schedule written to "complete.schedule"
+```
 
 ## Testing
 
 All tests are defined in the `/tests` subdirectory, and can be run using the
-`make test` rule. Takes my 2015 Macbook about 7 seconds to run.
+`make test` rule. Takes my 2015 Macbook about 10 seconds to run.
 
-## Input Formatting
+---
+
+## Input Formats
 
 There are three types of files that this program uses. A `requirements` file,
 an `availability` file, and a `schedule` file. These names are the file
@@ -43,7 +57,6 @@ extensions, and each file has different syntax.
 * `requirements` specifies what people with what skills must be present on any given shift
 * `availability` specifies what skills, and what shifts, every person can work
 * `schedule` is the outputted schedule taking into account the previous two files, or the partially-filled one which must be completed.
-
 
 ### Requirements
 
