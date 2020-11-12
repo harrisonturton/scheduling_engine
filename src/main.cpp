@@ -28,7 +28,7 @@ int print_help(int argc, char** argv) {
 		"\n"
 		"  Commands\n"
 		"  -h, --help\n"
-		"  -g, --gen <input file>\n"
+		"  -g, --gen <requirements file> <availability file>\n"
 		"  -c, --complete <input file> <schedule file>\n"
 		"\n";
 	return 0;
